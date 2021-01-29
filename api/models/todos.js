@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 const todosSchema = mongoose.Schema({
-    title: {
+    todo: {
         type: String,
         enum: ["Bad", "Kueche", "Gang", "Sonstiges"],
         default: "Kueche"
@@ -18,7 +18,11 @@ const todosSchema = mongoose.Schema({
     completedAt: {
         type: Date,
         default: null
-    }
+    },
+    user: 
+        { type: mongoose.Types.ObjectId,
+        ref: "userModel" }
+    
 })
 
 const todosModel = mongoose.model("todosModel", todosSchema, "todos")

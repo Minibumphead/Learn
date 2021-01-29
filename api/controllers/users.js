@@ -1,5 +1,7 @@
 import mongoose from 'mongoose'
 import {v4 as createUserIdwithUuid} from 'uuid' 
+import bcrypt from 'bcrypt'
+
 
 import usersModel from '../models/users.js'
 
@@ -16,9 +18,13 @@ export const createUser = async (req,res) => {
     const newId = createUserIdwithUuid()
 
     try {
-        const userData = req.body
-        const newUser = usersModel({...userData, userId: newId})
+        const username = req.body.username
+        const plainTextPw = req.body.password
+        const hashedPw = await bcrypt.hash(plainTextPw, 10)
+        const newUser = usersModel({password: hashedPw, username: username , userId: newId})
         newUser.save()
+        // note that this response can be accessed with axios using 
+        // const { data } = await axios.post(url, someforminput)
         res.send(newUser)
     } catch (error) {
         console.log(error)
@@ -38,7 +44,8 @@ export const deleteUser = async (req,res) => {
     }
     try{
         await usersModel.findByIdAndDelete(id)
-        res.send(`User with the id ${id} has been deleted`)
+        const remainingUsers = await usersModel.find()
+        res.send(remainingUsers)
     
     } catch (error) {
         console.log(error)

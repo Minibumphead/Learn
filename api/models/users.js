@@ -8,16 +8,18 @@ import mongoose from 'mongoose'
 const usersSchema = mongoose.Schema({
     userId: String,
     password: String,
-    points: Number,
+    points: {
+        type: Number,
+        default: 0
+    },
     username: {
         type: String,
         required: true
     },
-    
-    todos: [
-        { type: mongoose.Types.ObjectId,
-        ref: "todosModel" }
-    ]
+    todos:[ {
+        type: mongoose.Types.ObjectId,
+        ref: "todosModel"
+    }]
 })
 
 const userModel = mongoose.model("userModel", usersSchema, "users")

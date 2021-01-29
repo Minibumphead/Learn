@@ -28,9 +28,10 @@ export const updateTodo = async (req, res) => {
             res.status(404).send(`Object with the id ${id} not found`)
         }
 
-        const updatedId = await todosModel.findByIdAndUpdate(id, {...newData, id}, {new:true})
-        res.send(updatedId)
-
+        const updatedTodo = await todosModel.findByIdAndUpdate(id, {...newData, id}, {new:true})
+        const all_todos = await todosModel.find()
+        console.log(all_todos)
+        res.send(all_todos)
     } catch (error) {
         console.log(error)
     }
@@ -46,7 +47,9 @@ export const deleteTodo = async (req, res) => {
 
     try {
         await todosModel.findByIdAndDelete(id)
-        res.status(200).send(`Todo with the id ${id} has been deleted`)
+        const remainingTodos = await todosModel.find()
+        console.log(remainingTodos)
+        res.send(remainingTodos)
     } catch (error) {
         console.log(error)
     }

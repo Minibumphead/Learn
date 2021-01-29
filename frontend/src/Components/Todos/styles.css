@@ -1,0 +1,30 @@
+
+
+.todo-title {
+    margin-left: 7.5%;
+    font-weight: 999;
+
+}
+
+.todo-completed {
+
+}
+
+.todo-card {
+    width: 25%;
+    background: rgb(207, 133, 36);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.todo-card-completed {
+    width: 25%;
+    background: rgb(47, 172, 47);
+    background-color: green;
+    text-decoration: line-through;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+

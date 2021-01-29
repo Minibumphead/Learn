@@ -1,16 +1,19 @@
 
-import UserListComponent from './Components/users/UserListComponent'
-import { useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { getUsers } from './actions/users'
+import { useSelector } from 'react-redux'
+import UserSignUpForm from './Components/Forms/UserSignUpForm'
+import TodosList from './Components/Todos/TodosList'
+import UserList from './Components/Users/UserList'
+import './App.css'
+
 
 function App() {
-  const [userId, setCurrentId] = useState(null);
-  
+  const all_users = useSelector(state => state.users)
+  const all_todos = useSelector(state => state.todos)
   return (
     <div className="App">
-      <UserListComponent userId = {userId} setCurrentId={setCurrentId} />
-    </div>
+      <UserSignUpForm />
+      <UserList all_users = {all_users}/>
+    </div> 
   );
 }
 

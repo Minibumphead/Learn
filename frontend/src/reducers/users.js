@@ -1,10 +1,13 @@
-
-export const usersReducer = (state = [] , action ) => {
-    if (action.type === "GET_USERS"){
-        return {
-            ...state,
-            users: action.payload
-        }
+const initialState = []
+export const userReducer = (state = initialState, action) => {
+    switch(action.type) {
+        case 'GET_USERS':
+            return action.payload
+        case 'CREATE_USER':
+            return [...state, action.payload]
+        case 'DELETE_USER':
+            return action.payload
+        default: 
+            return state
     }
-    return state
 }

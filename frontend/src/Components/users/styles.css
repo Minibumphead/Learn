@@ -1,0 +1,45 @@
+
+.user {
+    background: rgb(24, 51, 24);
+    padding: 10px;
+    display: flex;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    color: white;
+    outline: none;
+    cursor: pointer;
+}
+
+.user-delete {
+    padding: 10px;
+
+    width: 20%;
+    justify-content: left;
+    align-items: center;
+    font-size: 10px;
+    max-height: 20px;
+    color: black;
+    outline: none;
+    cursor: pointer;
+    display: inline;
+}
+
+.user-addtodo {
+    padding: 10px;
+    display: inline;
+    width: 20%;
+    justify-content: left;
+    align-items: center;
+    font-size: 10px;
+    max-height: 20px;
+    color: black;
+    outline: none;
+    cursor: pointer;
+}
+
+.user-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

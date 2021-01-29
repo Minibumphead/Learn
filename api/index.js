@@ -13,7 +13,7 @@ app.use(cors())
 
 // setting port and db connection
 const PORT = 5000
-const DB_CONNECTION = "mongodb+srv://Minibumphead:<PASSWORD_HERE>@cluster0.5gnyy.mongodb.net/wg_db?retryWrites=true&w=majority"
+const DB_CONNECTION = "mongodb+srv://Minibumphead:catdogmouse!!!999@cluster0.5gnyy.mongodb.net/wg_db?retryWrites=true&w=majority"
 
 mongoose.connect(DB_CONNECTION,  { useNewUrlParser: true , useUnifiedTopology: true, useFindAndModify: false})
 .then(() => app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`)))
