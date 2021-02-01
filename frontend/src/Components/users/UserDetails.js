@@ -1,5 +1,4 @@
-import { useSelector, useStore } from 'react-redux'
-import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import TodoComponent from '../Todos/TodoComponent'
 
 export default function UserDetails(props) { 

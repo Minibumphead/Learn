@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-import {v4 as createUserIdwithUuid} from 'uuid' 
 import bcrypt from 'bcrypt'
 
 
@@ -15,13 +14,12 @@ export const getUsers = async (req,res) => {
 }
 
 export const createUser = async (req,res) => {
-    const newId = createUserIdwithUuid()
 
     try {
         const username = req.body.username
         const plainTextPw = req.body.password
         const hashedPw = await bcrypt.hash(plainTextPw, 10)
-        const newUser = usersModel({password: hashedPw, username: username , userId: newId})
+        const newUser = usersModel({password: hashedPw, username: username })
         newUser.save()
         // note that this response can be accessed with axios using 
         // const { data } = await axios.post(url, someforminput)

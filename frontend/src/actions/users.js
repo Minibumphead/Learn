@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const USERS_URL = 'http://localhost:5000/users'
+const USERS_URL = 'http://54.189.151.69:5000/users'
 
 export async function getUsers (dispatch, getState) {
     try {

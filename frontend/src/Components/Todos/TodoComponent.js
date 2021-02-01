@@ -5,8 +5,7 @@ import './styles.css'
 
 export default function TodoComponent (props) {
     const dispatch = useDispatch()
-    const [completed, setCompleted] = useState(props.todo.completed)
-    const [currentTodo, setCurrentTodo] = useState(props.todo._id)
+    const [currentTodo] = useState(props.todo._id)
     const [currentTodoData, setCurrentTodoData] = useState({...props.todo, completed: !props.todo.completed})
     const all_users = useSelector(state => state.users)
     const user_id = props.todo.user
@@ -21,10 +20,6 @@ export default function TodoComponent (props) {
     }
 
 
-    const toggleDone = () => {
-        setCompleted(!completed)
-    }
-
     return (
         <>
             <div className={props.todo.completed ? "todo-card-completed" : "todo-card"}>
@@ -34,7 +29,7 @@ export default function TodoComponent (props) {
                 <div>{props.todo.completed ? "DONE" : "NOTDONE" }</div>
                 <div className="controlls">
                     <button onClick={() => dispatch(deleteTodo(currentTodo))}>Loeschen</button>
-                    <button onClick={() => dispatch(updateTodo(currentTodo, currentTodoData))}>Erledigt</button>
+                    <button onClick={() => dispatch(updateTodo(currentTodo, currentTodoData, setCurrentTodoData))}>Erledigt</button>
                 </div>
            </div>   
         </>

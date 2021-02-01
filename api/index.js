@@ -17,7 +17,10 @@ dotenv.config()
 // setting port and db connection
 const PORT = 5000
 
-mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.5gnyy.mongodb.net/wg_db?retryWrites=true&w=majority`,  { useNewUrlParser: true , useUnifiedTopology: true, useFindAndModify: false})
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build')) }
+
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.5gnyy.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,  { useNewUrlParser: true , useUnifiedTopology: true, useFindAndModify: false})
 .then(() => app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`)))
 .catch((err)=>console.log(err))
 

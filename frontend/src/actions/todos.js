@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const TODOS_URL = 'http://localhost:5000/todos'
+const TODOS_URL = 'http://54.189.151.69:5000/todos'
 
 export async function getTodos(dispatch, getState) {
     const { data } = await axios.get(TODOS_URL)
@@ -22,8 +22,9 @@ export const deleteTodo = (todo_id) => async (dispatch) => {
     }
 }
 
-export const updateTodo = (todo_id, todoData) => async(dispatch) => {
+export const updateTodo = (todo_id, todoData, setCurrentTodoData) => async(dispatch) => {
     try {
+        setCurrentTodoData({...todoData, completed: !todoData.completed})
         const update_url = `${TODOS_URL}/${todo_id}`
         const { data } = await axios.patch(update_url, todoData)
         dispatch({type: 'UPDATE_TODO', payload: data})

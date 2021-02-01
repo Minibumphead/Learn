@@ -9,7 +9,7 @@ export const todosReducer = (state = initialState, action) => {
         case 'DELETE_TODO':
             return action.payload
         case 'UPDATE_TODO':
-            return [...state, action.payload]
+            return action.payload
         default:
             return state
     }

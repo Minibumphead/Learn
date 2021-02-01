@@ -1,1 +1,6 @@
 mongo "mongodb+srv://cluster0.5gnyy.mongodb.net/wg_db" --username Minibumphead
+
+
+ec2-54-189-151-69.us-west-2.compute.amazonaws.com
+
+54.189.151.69

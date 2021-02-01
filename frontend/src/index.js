@@ -9,8 +9,7 @@ import reducers from './reducers/index'
 import { getTodos } from './actions/todos'
 import { getUsers } from './actions/users'
 
-const store =  createStore(reducers, compose(applyMiddleware(thunk), 
-                                              window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+const store =  createStore(reducers, compose(applyMiddleware(thunk)
                                             )
                                           )
 
